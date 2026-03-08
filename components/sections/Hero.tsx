@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { HERO, PRODUCT, PRODUCT_ASSETS } from "@/content/product";
 import { Button } from "@/components/ui/Button";
+import { imgSrc } from "@/lib/imgSrc";
 
 export function Hero() {
   return (
@@ -13,13 +13,12 @@ export function Hero() {
     >
       {/* Background image — full bleed, low opacity */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={PRODUCT_ASSETS.heroLifestyle}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={imgSrc(PRODUCT_ASSETS.heroLifestyle)}
           alt=""
-          fill
-          priority
-          className="object-cover opacity-25"
-          sizes="100vw"
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
+          fetchPriority="high"
         />
         {/* Gradient overlay — left strong, right fades */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#08080A] via-[#08080A]/80 to-[#08080A]/20" />

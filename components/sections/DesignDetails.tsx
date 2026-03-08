@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { DESIGN_DETAILS } from "@/content/product";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { imgSrc } from "@/lib/imgSrc";
 
 export function DesignDetails() {
   return (
@@ -61,12 +61,12 @@ export function DesignDetails() {
           {/* Right — image */}
           <FadeIn delay={0.2}>
             <div className="relative aspect-[4/5] overflow-hidden bg-[#111114]">
-              <Image
-                src={DESIGN_DETAILS.imageSrc}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={imgSrc(DESIGN_DETAILS.imageSrc)}
                 alt={DESIGN_DETAILS.imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#08080A]/20 pointer-events-none" />
             </div>

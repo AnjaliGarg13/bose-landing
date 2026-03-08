@@ -1,7 +1,7 @@
 import { FINAL_CTA, PRODUCT_ASSETS } from "@/content/product";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
-import Image from "next/image";
+import { imgSrc } from "@/lib/imgSrc";
 
 export function FinalCTA() {
   return (
@@ -12,12 +12,12 @@ export function FinalCTA() {
     >
       {/* Background product image — very subtle */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={PRODUCT_ASSETS.heroProduct}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={imgSrc(PRODUCT_ASSETS.heroProduct)}
           alt=""
-          fill
-          className="object-cover opacity-10"
-          sizes="100vw"
+          className="absolute inset-0 w-full h-full object-cover opacity-10"
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D10] via-[#0D0D10]/90 to-[#0D0D10]/70" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D10] via-transparent to-[#0D0D10]" />

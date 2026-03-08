@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { SectionLabel } from "@/components/ui/SectionLabel";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { imgSrc } from "@/lib/imgSrc";
 
 interface BenefitSectionProps {
   id: string;
@@ -94,12 +94,12 @@ export function BenefitSection({
             className={`order-1 ${isImageLeft ? "lg:order-1" : "lg:order-2"}`}
           >
             <div className="relative aspect-[4/3] lg:aspect-[3/4] overflow-hidden bg-[#111114]">
-              <Image
-                src={imageSrc}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={imgSrc(imageSrc)}
                 alt={imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
               />
               {/* Subtle vignette */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#08080A]/30 to-transparent pointer-events-none" />
